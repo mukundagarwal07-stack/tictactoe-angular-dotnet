@@ -1,0 +1,14 @@
+# Build output
+bin/
+obj/
+dist/
+node_modules/
+.angular/
+
+# Editors
+.vs/
+.vscode/
+.idea/
+
+# The assessment brief is not part of the solution
+*.docx
