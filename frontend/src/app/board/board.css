@@ -1,0 +1,33 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 5.5rem);
+  gap: 6px;
+}
+
+.cell {
+  height: 5.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1f2933;
+  background: #fff;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cell:hover:not(:disabled) {
+  background: #f0f4f8;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.taken {
+  color: #1f2933;
+}
+
+.cell.win {
+  background: #d9f2e6;
+  border-color: #38a169;
+}

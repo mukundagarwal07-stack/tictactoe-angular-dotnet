@@ -1,0 +1,95 @@
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.modes {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.modes label {
+  cursor: pointer;
+}
+
+.status {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.status.done {
+  color: #2f855a;
+}
+
+.error {
+  margin: 0.75rem 0 0;
+  color: #c53030;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.actions button {
+  padding: 0.5rem 0.9rem;
+  background: #fff;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions button:hover:not(:disabled) {
+  background: #f0f4f8;
+}
+
+.actions button:disabled {
+  color: #9aa5b1;
+  cursor: default;
+}
+
+.panel {
+  min-width: 17rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #52606d;
+}
+
+.panel h2 + table {
+  margin-bottom: 1.75rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.scores th {
+  font-weight: 500;
+}
+
+.history thead th {
+  font-size: 0.8rem;
+  color: #52606d;
+}
+
+.empty {
+  color: #7b8794;
+}

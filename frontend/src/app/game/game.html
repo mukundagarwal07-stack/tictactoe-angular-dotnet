@@ -1,0 +1,67 @@
+@if (state(); as game) {
+  <div class="layout">
+    <section class="play">
+      <div class="modes">
+        <label>
+          <input type="radio" name="mode" value="TwoPlayer" [disabled]="busy()"
+                 [checked]="game.mode === 'TwoPlayer'" (change)="newGame('TwoPlayer')">
+          Two player
+        </label>
+        <label>
+          <input type="radio" name="mode" value="Computer" [disabled]="busy()"
+                 [checked]="game.mode === 'Computer'" (change)="newGame('Computer')">
+          Play against computer
+        </label>
+      </div>
+
+      <p class="status" role="status" [class.done]="game.status !== 'InProgress'">{{ statusText(game) }}</p>
+
+      <app-board
+        [cells]="game.board"
+        [winningCells]="game.winningCells"
+        [interactive]="playable()"
+        (play)="play($event)" />
+
+      @if (error(); as message) {
+        <p class="error" role="alert">{{ message }}</p>
+      }
+
+      <div class="actions">
+        <button type="button" (click)="undo()" [disabled]="!game.canUndo || busy()">Undo last move</button>
+        <button type="button" (click)="reset()" [disabled]="busy()">Reset game</button>
+        <button type="button" (click)="resetScoreboard()" [disabled]="busy()">Reset scoreboard</button>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <h2>Scoreboard</h2>
+      <table class="scores">
+        <tbody>
+          <tr><th>X wins</th><td>{{ game.scoreboard.xWins }}</td></tr>
+          <tr><th>O wins</th><td>{{ game.scoreboard.oWins }}</td></tr>
+          <tr><th>Draws</th><td>{{ game.scoreboard.draws }}</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Move history</h2>
+      @if (game.moves.length) {
+        <table class="history">
+          <thead>
+            <tr><th>Move</th><th>Player</th><th>Position</th></tr>
+          </thead>
+          <tbody>
+            @for (move of game.moves; track move.number) {
+              <tr>
+                <td>{{ move.number }}</td>
+                <td>{{ move.player }}</td>
+                <td>{{ position(move.row, move.column) }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } @else {
+        <p class="empty">No moves yet.</p>
+      }
+    </aside>
+  </div>
+}

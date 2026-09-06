@@ -1,0 +1,14 @@
+<div class="board">
+  @for (cell of cells(); track $index) {
+    <button
+      type="button"
+      class="cell"
+      [class.win]="isWinning($index)"
+      [class.taken]="cell"
+      [disabled]="!interactive() || !!cell"
+      [attr.aria-label]="label($index)"
+      (click)="select($index)">
+      {{ cell }}
+    </button>
+  }
+</div>
