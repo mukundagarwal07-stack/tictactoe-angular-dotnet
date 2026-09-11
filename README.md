@@ -1,5 +1,7 @@
 # Tic Tac Toe
 
+Mukund Agarwal — mukund.agarwal07@gmail.com
+
 ## Project overview
 
 A browser Tic Tac Toe game with an Angular frontend and a .NET Web API backend. Two
