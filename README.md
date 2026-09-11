@@ -32,7 +32,12 @@ scoreboard. The frontend renders whatever the backend sends back.
 
 ## How to run it
 
-Two terminals. The backend first, since the frontend calls it on startup.
+```
+git clone https://github.com/mukundagarwal07-stack/tictactoe-angular-dotnet.git
+cd tictactoe-angular-dotnet
+```
+
+Then two terminals. The backend first, since the frontend calls it on startup.
 
 ### Backend
 
